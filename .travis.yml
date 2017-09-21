@@ -1,8 +1,13 @@
 language: java
 sudo: required
 services:
-  - docker
+- docker
 jdk: oraclejdk8
 script:
-   - ./gradlew clean check stage
-   - docker build -t therickys93/coropaulusbot .
+- ./gradlew clean check stage
+- docker build -t therickys93/coropaulusbot .
+deploy:
+  provider: heroku
+  app: coropaulusbot
+  api_key:
+    secure: Zmdj/NomhJQBDmRGvlkdRVozWP7bQTnft/vPJrt79vtmk6QT1I4S6+ZyZIAsAVrDm9L66+TPP2vt/lfjQsNejyoSQZ2NNroxCWVtg2UjqPlxx43GmwmjemHX0LhKhkTg+OA2HSmM7wPgYF/iMU9yKmAGxtvZS/bp/vqhitHlF48JUOw6ind+ME+plPmG3KGpgcY4OPajJhI7XOaQHMmPWnxKNsQUGCPnksp+JC98ULNKABT/oeFgSbrk+8JlGWWxXCfBD8Xf/cN0fhh6LgZAXyybnliPLA1hqp0F64ll8BW3Pv9ee9tNqoM5D+cNlKu1d1sDfnrbkb6+OJmTM21TZ5YlQyS9q7kWb2c7+iU2AaGHpsS1yxdZpogLXBhE8ZuueZc0TcivKWn2PS250YVSyv3wRjd0Vd2F5Pcp2dbdXOTq7mmD8P9SxCKAiWFqrLQd8eo5Yt57d/zOX7r5TrzRp/NCfKoBrwdhdF4HTGhcdyCttYPN8Jgrm0zXI5kn9urzQDXF/OAv5ngYNETL0M2j4zGxjL6EBxUiTomOXVxpPg7Tjhyv83qJr06ba/CZG0yi5TnrThcDKnqob7dMSly6uPSpmuO0isnEs46Yzej6a9WYXkTInqhKuVSI2t7IoLP+B4KnxmRAkIEBnoz2DoDpGo38pqUEroq0U/CdV9M984Y=
