@@ -17,6 +17,7 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.SendResponse;
 
+import it.itjustworks.coropaulusbot.commands.BotResponse;
 import it.itjustworks.coropaulusbot.utilities.TelegramIP;
 
 public class BotResource extends ServerResource{
@@ -62,11 +63,10 @@ public class BotResource extends ServerResource{
 					+ "Per controllare lo stato dei nostri servizi clicca sul link: \n"
 					+ "www.itjustworks.it/status/";
 		} else {
-			// non disponibile per il momento
-			// answer = new BotResponse.Builder().build().reply(message);
+			answer = new BotResponse.Builder().build().reply(message);
 		}
-		answer = "Attenzione!!!\nQuesto bot non è al momento disponibile!!!\nPer il momento utilizza il sito web: "
-				+ "http://coropaulus.altervista.org\n\nPer qualsiasi informazione contattaci qui @itjustworksbot";
+		//answer = "Attenzione!!!\nQuesto bot non è al momento disponibile!!!\nPer il momento utilizza il sito web: "
+		//		+ "http://coropaulus.altervista.org\n\nPer qualsiasi informazione contattaci qui @itjustworksbot";
 		getLogger().info(answer);
 		
 		final TelegramBot bot = TelegramBotAdapter.build(Config.INSTANCE.BOT_TOKEN);
