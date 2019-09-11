@@ -45,13 +45,6 @@ public class BotResource extends ServerResource{
 			return null;
 		}
 		
-		String ipTelegramAddress = Request.getCurrent().getHeaders().getFirstValue("X-Forwarded-For", true);
-		if(TelegramIP.isOk(ipTelegramAddress) == false){
-			getLogger().warning(WRONG_TELEGRAM_IP);
-			setStatus(Status.CLIENT_ERROR_BAD_REQUEST, WRONG_TELEGRAM_IP);
-			return null;
-		}
-		
 		String message = update.message().text();
 		getLogger().info(message);
 		
