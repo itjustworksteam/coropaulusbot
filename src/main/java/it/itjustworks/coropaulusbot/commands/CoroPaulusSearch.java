@@ -12,7 +12,7 @@ public class CoroPaulusSearch implements Command {
 		CoroPaulus coro = new CoroPaulus();
 		try {
 			ListaCanti canti = coro.listaCanti();
-			canti.cerca(message);
+			canti.cerca(message.toLowerCase());
 			return canti.prettyToString();
 		} catch (IOException e) {
 			return "Non riesco a trovare il server";
